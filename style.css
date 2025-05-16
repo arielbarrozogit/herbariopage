@@ -2,7 +2,7 @@
 body{
 font-family: Georgia, 'Times New Roman', Times, serif;
 color: #333;
-font-size: 1.2 rem;
+font-size: 1.2rem;
 line-height: 1.6em;
 margin: 0;
 
@@ -81,9 +81,9 @@ p {
 }
 .footer{
     background: #494747;
-    padding: 2em 0;
+    padding: 0em 0;
     text-align:center;
-    margin-top: 3rem;
+    margin-top: 4rem;
     color: white;
     
 }
@@ -167,7 +167,7 @@ p {
 .formulario__input{
     padding: 20px;
     border: 1px solid rgba(0,0,0,0.3);
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .formulario__label{
