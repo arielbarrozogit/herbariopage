@@ -49,29 +49,55 @@
             </div>
         </div>
     </div>
+
     <section>
-       
-        <form action="" class="formulario">
-            <h2 class="formulario"> Contactenos</h2>
-            <input type="text" class="formulario">
-            <label for=""
-            class="formulario">Nombre y Apellido <abbr title="required" aria-label="required">*</abbr></label>
-            <input type="text" class="formulario">
-            <label for=""
-            class="formulario">Correo</label>
-            <input type="text" class="formulario" >
-            <label for=""
-            class="formulario">Telefono</label>
-            <input type="text" class="formulario">
-            <label for=""
-            class="formulario">Mensaje <abbr title="required" aria-label="required">*</abbr>
-        </label>
-            <input type="submit" class="formulario">
+  <form id="formulario" class="formulario" novalidate>
+    <h2>Contáctenos</h2>
 
+    <label for="nombre">Nombre y Apellido <abbr title="required">*</abbr></label>
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required class="formulario__input" />
 
-    </form>
-    </section>
+    <label for="email">Correo <abbr title="required">*</abbr></label>
+    <input type="email" id="email" name="email" placeholder="tu@email.com" required class="formulario__input" />
 
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" class="formulario__input" />
+
+    <label for="mensaje">Mensaje <abbr title="required">*</abbr></label>
+    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" required class="formulario__input"></textarea>
+
+    <input type="submit" value="Enviar" class="formulario__submit" />
+  </form>
+</section>
+
+<script>
+  document.getElementById('formulario').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const datos = {
+      nombre: this.nombre.value,
+      email: this.email.value,
+      telefono: this.telefono.value,
+      mensaje: this.mensaje.value
+    };
+
+    try {
+      const respuesta = await fetch('/api/enviarCorreo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+      });
+
+      const resultado = await respuesta.json();
+      alert(resultado.message);
+      if(respuesta.ok){
+        this.reset();  // limpia formulario si fue exitoso
+      }
+    } catch (error) {
+      alert('Error al enviar el mensaje. Intenta más tarde.');
+    }
+  });
+</script>
     
    </main>
    <footer class="footer">
@@ -80,5 +106,6 @@
    </footer>
    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
    <script src="scripts.js"></script>
+
 </body>
 </html>
