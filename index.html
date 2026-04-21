@@ -1,111 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo_bab.ico" alt="herbario responsivo">
-    
-    <title>Herbario BAB</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herbario BAB</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo_bab.ico">
 </head>
+
 <body>
-  <header class="header"> 
-        <div class="container logo-nav-container" >  <img src="logo_bab.png" >                   
-        <span class="menu-icon"> Ver menú</span>
-        <nav class="navigation">
-            <ul class="show">
-                <li ><a href="index.html">Inicio</a></li>
-                   
-                <li><a href="acerca.html">Acerca</a></li>
-          
-                <li><a href="#">Herbario</a></li>
-            
-                <li><a href="#">Sistemas</a></li>
-              
-                <li><a href="#">Contacto</a></li>
-                
-            </ul>
-        </nav>
 
-        </div>
-    </header>  
-   <main class="main">
-    <div class="container"></div>
-    <h1>
-       Herbario BAB
-    </h1>
-    <div id="carrusel-contenido">
-        <div id="carrusel-caja">
-            <div class="carrusel-elemento">
-                <img class="imagenes" src="imagenes/imagen-1.jpg" >
-            </div>
-            <div class="carrusel-elemento">   
-                <img class="imagenes" src="imagenes/imagen-2.jpg">
-            </div>
-            <div class="carrusel-elemento">   
-                <img class="imagenes" src="imagenes/imagen-3.jpg">                        
-            </div>
-        </div>
+<header class="header">
+  <div class="logo-nav-container">
+    <img src="logo_bab.png" alt="Herbario BAB">
+
+    <span class="menu-icon">Ver menú</span>
+
+    <nav class="navigation">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="acerca.html">Acerca</a></li>
+        <li><a href="#">Herbario</a></li>
+        <li><a href="#">Sistemas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- CARRUSEL -->
+  <div id="carrusel-contenido">
+    <div id="carrusel-caja">
+
+      <div class="slide">
+        <img class="imagenes" src="imagenes/1.jpg">
+        <img class="imagenes" src="imagenes/2.jpg">
+        <img class="imagenes" src="imagenes/3.jpg">
+      </div>
+
+      <div class="slide">
+        <img class="imagenes" src="imagenes/4.jpg">
+        <img class="imagenes" src="imagenes/5.jpg">
+        <img class="imagenes" src="imagenes/6.jpg">
+      </div>
+
+      <div class="slide">
+        <img class="imagenes" src="imagenes/7.jpg">
+        <img class="imagenes" src="imagenes/8.jpg">
+        <img class="imagenes" src="imagenes/5.jpg">
+      </div>
+
     </div>
+  </div>
 
-    <section>
-  <form id="formulario" class="formulario" novalidate>
-    <h2>Contáctenos</h2>
-
-    <label for="nombre">Nombre y Apellido <abbr title="required">*</abbr></label>
-    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required class="formulario__input" />
-
-    <label for="email">Correo <abbr title="required">*</abbr></label>
-    <input type="email" id="email" name="email" placeholder="tu@email.com" required class="formulario__input" />
-
-    <label for="telefono">Teléfono</label>
-    <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" class="formulario__input" />
-
-    <label for="mensaje">Mensaje <abbr title="required">*</abbr></label>
-    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí" required class="formulario__input"></textarea>
-
-    <input type="submit" value="Enviar" class="formulario__submit" />
+  <section class="buscador-home">
+  <p>Buscador del portal del Herbario BAB</p>
+  <form class="form-busqueda">
+    <input type="text" placeholder="Buscar por taxón, colector, localidad..." />
+    <button type="submit">Buscar</button>
   </form>
 </section>
 
-<script>
-  document.getElementById('formulario').addEventListener('submit', async function(e) {
-    e.preventDefault();
 
-    const datos = {
-      nombre: this.nombre.value,
-      email: this.email.value,
-      telefono: this.telefono.value,
-      mensaje: this.mensaje.value
-    };
+</main>
 
-    try {
-      const respuesta = await fetch('/api/enviarCorreo', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(datos)
-      });
+<footer class="footer">
+  <p>Herbario y Bioprospección</p>
+</footer>
 
-      const resultado = await respuesta.json();
-      alert(resultado.message);
-      if(respuesta.ok){
-        this.reset();  // limpia formulario si fue exitoso
-      }
-    } catch (error) {
-      alert('Error al enviar el mensaje. Intenta más tarde.');
-    }
-  });
-</script>
-    
-   </main>
-   <footer class="footer">
-    <div class="container"></div>
-    <p> Herbario y Bioprospeccion </p>
-   </footer>
-   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-   <script src="scripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="scripts.js"></script>
 
 </body>
 </html>
