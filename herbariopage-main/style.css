@@ -1,0 +1,301 @@
+/* =========================
+   BASE
+   ========================= */
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   CONTENEDOR GENERAL
+   ========================= */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* =========================
+   HEADER / NAV
+   ========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  z-index: 1000;
+}
+
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 16px;
+}
+
+.logo-nav-container img {
+  height: 48px;
+}
+
+/* Navegación desktop */
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation ul li {
+  display: inline-block;
+}
+
+.navigation ul li a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+  background-color: rgb(14, 161, 81);
+}
+
+/* Menu icon móvil */
+.menu-icon {
+  display: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* =========================
+   MAIN
+   ========================= */
+
+.main {
+  padding-top: 72px; /* altura del header fixed */
+}
+
+/* =========================
+   CARRUSEL HOME – FINAL
+   3 IMÁGENES POR PASADA
+   ========================= */
+
+#carrusel-contenido {
+  max-width: 1200px;
+  margin: 8px auto;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #111;
+}
+
+#carrusel-caja {
+  display: flex;
+  height: 100%;
+  animation: carrusel 18s infinite ease-in-out;
+}
+
+/* Cada slide ocupa UNA pantalla */
+.slide {
+  flex: 0 0 100%;
+  display: flex;
+  height: 100%;
+}
+
+/* Tres imágenes dentro de cada slide */
+.slide .imagenes {
+  flex: 0 0 calc(100% / 3);
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #carrusel-contenido {
+    height: 220px;
+  }
+}
+
+/* Animación por slides */
+@keyframes carrusel {
+  0%   { transform: translateX(0); }
+  30%  { transform: translateX(0); }
+
+  35%  { transform: translateX(-100%); }
+  65%  { transform: translateX(-100%); }
+
+  70%  { transform: translateX(-200%); }
+  95%  { transform: translateX(-200%); }
+
+  100% { transform: translateX(0); }
+}
+
+
+/* =========================
+   FORMULARIO (se conserva)
+   ========================= */
+
+.formulario {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  background-color: #d9f0d9;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(14, 161, 81, 0.3);
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.formulario h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.formulario__input,
+textarea.formulario__input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 2px solid rgb(14, 161, 81);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.formulario__input:focus,
+textarea.formulario__input:focus {
+  outline: none;
+  background-color: #f0fff0;
+}
+
+.formulario__submit {
+  width: 100%;
+  padding: 12px;
+  background-color: rgb(14, 161, 81);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.formulario__submit:hover {
+  background-color: rgb(30, 146, 80);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+  margin-top: 0px;
+  background-color: #2b2b2b;
+  color: #eaeaea;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.footer p {
+  margin: 0;                  /* ← CLAVE */
+  font-size: 0.85rem;
+   line-height: 1.2;
+}
+
+
+/* =========================
+   RESPONSIVE / MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* Menu */
+  .menu-icon {
+    display: block;
+  }
+
+  .navigation ul {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    padding: 12px;
+    margin-top: 8px;
+  }
+
+  .navigation ul.show {
+    display: flex;
+  }
+
+  .navigation ul li {
+    display: block;
+  }
+
+  .navigation ul li a {
+    padding: 6px 10px;
+  }
+
+  /* Carrusel */
+  .imagenes {
+    height: 220px;
+  }
+}
+
+.buscador-home {
+  max-width: 1200px;
+  margin: 24px auto;
+  text-align: center;
+}
+
+.buscador-home p {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.form-busqueda {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-busqueda input {
+  width: 60%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.form-busqueda button {
+  padding: 10px 16px;
+  background-color: rgb(14, 161, 81);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-busqueda button:hover {
+  background-color: rgb(30, 146, 80);
+}
