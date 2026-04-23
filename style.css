@@ -1,0 +1,323 @@
+/* =========================
+   BASE
+   ========================= */
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   CONTENEDOR GENERAL
+   ========================= */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* =========================
+   HEADER / NAV
+   ========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  z-index: 1000;
+}
+
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 16px;
+}
+
+.logo-nav-container img {
+  height: 48px;
+}
+
+/* Navegación desktop */
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation ul li {
+  display: inline-block;
+}
+
+.navigation ul li a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+  background-color: rgb(14, 161, 81);
+}
+
+/* Menu icon móvil */
+.menu-icon {
+  display: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* =========================
+   MAIN (contenido general)
+   ========================= */
+
+.main {
+  padding-top: 72px; /* altura del header fixed */
+}
+
+/* =========================
+   CARRUSEL HOME
+   ========================= */
+
+#carrusel-contenido {
+  max-width: 1200px;
+  margin: 8px auto;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #111;
+}
+
+#carrusel-caja {
+  display: flex;
+  height: 100%;
+  animation: carrusel 18s infinite ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: flex;
+  height: 100%;
+}
+
+.slide .imagenes {
+  flex: 0 0 calc(100% / 3);
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #carrusel-contenido {
+    height: 220px;
+  }
+}
+
+@keyframes carrusel {
+  0%   { transform: translateX(0); }
+  30%  { transform: translateX(0); }
+  35%  { transform: translateX(-100%); }
+  65%  { transform: translateX(-100%); }
+  70%  { transform: translateX(-200%); }
+  95%  { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
+
+/* =========================
+   BUSCADOR HOME
+   ========================= */
+
+.buscador-home {
+  max-width: 1200px;
+  margin: 24px auto;
+  text-align: center;
+}
+
+.buscador-home p {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.form-busqueda {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-busqueda input {
+  width: 60%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.form-busqueda button {
+  padding: 10px 16px;
+  background-color: rgb(14, 161, 81);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-busqueda button:hover {
+  background-color: rgb(30, 146, 80);
+}
+
+/* =========================
+   PORTAL DE ESPECÍMENES
+   ========================= */
+
+.portal {
+  background: #f8f8f8;
+  min-height: calc(100vh - 72px); /* compensa header fijo */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.portal-meta {
+  max-width: 1200px;
+  margin: 0 auto 12px auto;
+}
+
+.portal-meta h1 {
+  margin: 0 0 4px 0;
+  font-size: 1.6rem;
+}
+
+.portal-buscador {
+  max-width: 1200px;
+  margin: 0 auto 16px auto;
+}
+
+.portal-buscador input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.portal-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+
+/* Lista */
+.lista-especimenes {
+  width: 40%;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.specimen-card {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 4px;
+}
+
+.specimen-card:last-child {
+  border-bottom: none;
+}
+
+.specimen-card h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+}
+
+.specimen-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Mapa */
+.mapa-especimenes {
+  width: 60%;
+  height: 60vh;
+  max-height: 600px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #eaeaea;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+  background-color: #2b2b2b;
+  color: #eaeaea;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .menu-icon {
+    display: block;
+  }
+
+  .navigation ul {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    padding: 12px;
+    margin-top: 8px;
+  }
+
+  .navigation ul.show {
+    display: flex;
+  }
+
+  .navigation ul li {
+    display: block;
+  }
+
+  .navigation ul li a {
+    padding: 6px 10px;
+  }
+
+  .portal-contenido {
+    flex-direction: column;
+  }
+
+  .lista-especimenes,
+  .mapa-especimenes {
+    width: 100%;
+    max-height: none;
+    height: 40vh;
+  }
+}

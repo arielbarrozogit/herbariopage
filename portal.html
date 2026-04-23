@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal de Especímenes – Herbario BAB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+
+<header class="header">
+  <img src="logo_bab.png" alt="Herbario BAB">
+</header>
+
+<main class="portal">
+
+  <!-- METADATOS -->
+  <section class="portal-meta">
+    <h1>Especímenes públicos – Herbario BAB</h1>
+    <p>
+      Registros: <strong id="total-registros">–</strong> ·
+      Datos actualizados hasta: <strong id="fecha-datos">–</strong>
+    </p>
+  </section>
+
+  <!-- BUSCADOR -->
+  <section class="portal-buscador">
+    <input
+      type="text"
+      id="busqueda"
+      placeholder="Buscar por taxón, colector, localidad…"
+    >
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="portal-contenido">
+
+    <!-- LISTA -->
+    <div class="lista-especimenes" id="lista-especimenes">
+      <!-- acá van las cards -->
+    </div>
+
+    <!-- MAPA -->
+    <div class="mapa-especimenes" id="map"></div>
+
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  <p>Herbario y Bioprospección</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="portal.js"></script>
+
+</body>
+</html>
