@@ -299,3 +299,256 @@ textarea.formulario__input:focus {
 .form-busqueda button:hover {
   background-color: rgb(30, 146, 80);
 }
+
+/* ===============================
+   Layout general del portal
+   =============================== */
+
+.portal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ===============================
+   Metadatos
+   =============================== */
+
+.portal-meta h1 {
+  margin-bottom: 4px;
+}
+
+.portal-meta p {
+  color: #555;
+  margin-top: 0;
+}
+
+/* ===============================
+   Buscador y filtros
+   =============================== */
+
+.portal-buscador {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.portal-buscador input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.portal-filtros {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.portal-filtros label {
+  cursor: pointer;
+}
+
+/* ===============================
+   Mapa (PROTAGONISTA)
+   =============================== */
+
+#map {
+  width: 100%;
+  height: 500px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* ===============================
+   Contenido principal: lista + filtros
+   =============================== */
+
+.portal-contenido {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  gap: 16px;
+  align-items: start;
+
+}
+
+/* ===============================
+   Lista de especímenes
+   =============================== */
+.lista-especimenes {
+  max-height: calc(100vh - 260px);
+  overflow-y: auto;
+}
+
+/* Cards individuales */
+.specimen-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.specimen-card:hover {
+  background: #f0f7f0;
+  border-color: #2e7d32;
+}
+
+.specimen-card strong {
+  font-size: 15px;
+}
+
+/* Resaltado al hacer click desde el mapa */
+.specimen-card.resaltado {
+  background: #fff3cd;
+  border-color: #ff9800;
+}
+
+/* ===============================
+   PORTAL HERBARIO – MAPA Y LISTA
+   =============================== */
+
+/* Contenedor principal */
+.portal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Meta */
+.portal-meta h1 {
+  margin-bottom: 4px;
+}
+.portal-meta p {
+  color: #555;
+  margin-top: 0;
+}
+
+/* Buscador */
+.portal-buscador {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.portal-buscador input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Filtros */
+.portal-filtros {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+.portal-filtros label {
+  cursor: pointer;
+}
+
+/* Layout principal: LISTA + MAPA */
+.portal-contenido {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* LISTA IZQUIERDA */
+.lista-especimenes {
+  overflow-y: auto;
+  max-height: calc(100vh - 260px);
+  padding-right: 6px;
+}
+
+/* TARJETAS */
+.specimen-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.specimen-card:hover {
+  background: #f0f7f0;
+  border-color: #2e7d32;
+}
+
+.specimen-card strong {
+  font-size: 15px;
+}
+
+/* Resaltado desde el mapa */
+.specimen-card.resaltado {
+  background: #fff3cd;
+  border-color: #ff9800;
+}
+
+.card-meta,
+.card-ids {
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+  font-family: monospace;
+}
+
+/* MAPA DERECHA (ESTE ERA EL FALTANTE) */
+.mapa-especimenes {
+  height: calc(100vh - 260px);
+  min-height: 420px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #eaeaea;
+}
+
+/* Leaflet interno */
+#map {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+   RESPONSIVE – CELULAR 📱
+   ========================= */
+@media (max-width: 768px) {
+
+  .portal-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .mapa-especimenes {
+    order: 1;
+    height: 360px;
+    margin-bottom: 12px;
+  }
+
+  .lista-especimenes {
+    order: 2;
+    max-height: none;
+  }
+
+  .specimen-card {
+    font-size: 15px;
+  }
+
+  .card-ids {
+    font-size: 12px;
+    word-break: break-word;
+  }
+}

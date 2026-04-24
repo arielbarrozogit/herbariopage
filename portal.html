@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Portal de Especímenes – Herbario BAB</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
+
 <body>
+  <header class="header">
+    <img src="logo_bab.png" alt="Herbario BAB" />
+  </header>
 
-<header class="header">
-  <img src="logo_bab.png" alt="Herbario BAB">
-</header>
+  <main class="portal">
 
-<main class="portal">
+    <!-- METADATOS -->
+    <section class="portal-meta">
+      <h1>Especímenes públicos – Herbario BAB</h1>
+      <p>
+        Registros: <strong id="total-registros">–</strong> ·
+        Datos actualizados hasta: <strong id="fecha-datos">–</strong>
+      </p>
+    </section>
 
-  <!-- METADATOS -->
-  <section class="portal-meta">
-    <h1>Especímenes públicos – Herbario BAB</h1>
-    <p>
-      Registros: <strong id="total-registros">–</strong> ·
-      Datos actualizados hasta: <strong id="fecha-datos">–</strong>
-    </p>
-  </section>
+    <!-- BUSCADOR + FILTROS -->
+    <section class="portal-buscador">
+      <input
+        type="text"
+        id="busqueda"
+        placeholder="Buscar por taxón, colector, localidad… (puedes escribir varias palabras)"
+      />
 
-  <!-- BUSCADOR -->
-  <section class="portal-buscador">
-    <input
-      type="text"
-      id="busqueda"
-      placeholder="Buscar por taxón, colector, localidad…"
-    >
-  </section>
+      <div class="portal-filtros">
+        <label>
+          <input type="checkbox" id="filtro-plaga" />
+          Solo plagas
+        </label>
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <section class="portal-contenido">
+        <label>
+          <input type="checkbox" id="filtro-clave-roja" />
+          Clave roja
+          <small id="nota-clave-roja" style="color:#777; margin-left:6px;"></small>
+        </label>
+      </div>
+    </section>
 
-    <!-- LISTA -->
-    <div class="lista-especimenes" id="lista-especimenes">
-      <!-- acá van las cards -->
-    </div>
+    <!-- CONTENIDO PRINCIPAL: LISTA + MAPA -->
+    <section class="portal-contenido">
 
-    <!-- MAPA -->
-    <div class="mapa-especimenes" id="map"></div>
+      <!-- LISTA IZQUIERDA -->
+      <div class="lista-especimenes" id="lista-especimenes">
+        <!-- acá se renderizan las cards -->
+      </div>
 
-  </section>
+      <!-- MAPA DERECHA -->
+      <div class="mapa-especimenes">
+        <div id="map"></div>
+      </div>
 
-</main>
+    </section>
+  </main>
 
+  <footer class="footer">
+    <p>Herbario y Bioprospección</p>
+  </footer>
 
-<footer class="footer">
-  <p>Herbario y Bioprospección</p>
-</footer>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="portal.js"></script>
-
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="portal.js"></script>
 </body>
 </html>
